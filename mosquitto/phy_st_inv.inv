@@ -1,0 +1,2 @@
+=>(AwayFromHome,OutletisOn);(smartthings/Outlet/bool_On/cmd,true)
+=>(AwayFromHome,DoorisLocked);(smartthings/DoorLock/bool_Locked/cmd,true)

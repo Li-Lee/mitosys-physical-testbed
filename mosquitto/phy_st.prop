@@ -1,0 +1,6 @@
+OutletisOn: ==(CURRENT(smartthings/Outlet/bool_On/state),CONSTANT_BOOL(TRUE))
+OutletTurnedOn: ==(CURRENT(smartthings/Outlet/bool_On/cmd),CONSTANT_BOOL(TRUE))
+OutletTurnedOff: ==(CURRENT(smartthings/Outlet/bool_On/cmd),CONSTANT_BOOL(FALSE))
+DoorisLocked: ==(CURRENT(smartthings/DoorLock/bool_Locked/state),CONSTANT_BOOL(TRUE))
+DoorUnlocking: ==(CURRENT(smartthings/DoorLock/bool_Locked/cmd),CONSTANT_BOOL(FALSE))
+AwayFromHome: ==(CURRENT(smartthings/Away/bool_On/state),CONSTANT_BOOL(TRUE))

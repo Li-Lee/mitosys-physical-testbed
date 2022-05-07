@@ -1,0 +1,2 @@
+=>(AwayFromHome,!(OutletTurnedOff))
+=>(AwayFromHome,!(DoorUnlocking))
