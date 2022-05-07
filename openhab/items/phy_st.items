@@ -1,0 +1,9 @@
+Switch Outlet "Outlet" {
+    channel="mqtt:topic:broker:Outlet:bool_On" [profile="system:follow"]
+}
+Switch DoorLock "Door Lock" {
+    channel="mqtt:topic:broker:DoorLock:bool_Locked" [profile="system:follow"]
+}
+Switch Away "Away"{
+    channel="mqtt:topic:broker:Away:bool_On" [profile="system:follow"]
+}

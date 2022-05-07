@@ -1,0 +1,23 @@
+rule "DoorLockStatusUpdate"
+when
+    Item DoorLock_Alarm_Raw received update
+then
+    if (DoorLock_Alarm_Raw.state != "") {
+	var remoteUnlock = "{\"notification\":\"ACCESS_CONTROL__REMOTE_UNLOCK\",\"level\":\"1\",\"type\":\"ACCESS_CONTROL\",\"event\":\"4\",\"status\":\"255\"}"
+	var manualUnlock = "{\"notification\":\"ACCESS_CONTROL__MANUAL_UNLOCK\",\"level\":\"1\",\"type\":\"ACCESS_CONTROL\",\"event\":\"2\",\"status\":\"255\"}"
+	var remoteLock = "{\"notification\":\"ACCESS_CONTROL__REMOTE_LOCK\",\"level\":\"1\",\"type\":\"ACCESS_CONTROL\",\"event\":\"3\",\"status\":\"255\"}"
+	var manualLock = "{\"notification\":\"ACCESS_CONTROL__MANUAL_LOCK\",\"level\":\"1\",\"type\":\"ACCESS_CONTROL\",\"event\":\"1\",\"status\":\"255\"}"
+	var lockJammed = "{\"notification\":\"ACCESS_CONTROL__LOCK_JAMMED\",\"level\":\"2\",\"type\":\"ACCESS_CONTROL\",\"event\":\"11\",\"status\":\"255\"}"
+	var stateString = DoorLock_Alarm_Raw.state.toString
+	    if (stateString.equals(manualUnlock)) {
+	    	DoorLock.postUpdate(OFF)
+		logInfo("Rules", "DoorLock updated to ON")
+	    }
+	    if (stateString.equals(manualLock) || stateString.equals(lockJammed)) {
+	        DoorLock.postUpdate(ON)
+		logInfo("Rules", "DoorLock updated to OFF")
+	    }
+    }
+    //val mqttActions = getActions("mqtt","mqtt:broker:broker")
+    //mqttActions.publishMQTT("smartthings/DoorLock/bool_Locked/cmd",DoorLock.state.toString(),true)
+end

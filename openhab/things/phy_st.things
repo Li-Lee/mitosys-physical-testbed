@@ -1,0 +1,22 @@
+Bridge mqtt:broker:broker "Broker" [ host="127.0.0.1",secure=false, publickeypin=false, keepAlive=60, clientID="PARAPET_PROXY", certificatepin=false, qos=0,reconnectTime=30000,port=1883,lwtRetain=true,enableDiscovery=true] {
+    Thing topic Outlet "Outlet" {
+        Channels:
+            Type switch : bool_On "ON Status" [ commandTopic="smartthings/Outlet/bool_On/state",stateTopic="smartthings/Outlet/bool_On/cmd",on="true",off="false",postCommand=true]
+    }
+    Thing topic DoorLock "Door Lock"{
+        Channels:
+            Type switch : bool_Locked "Door Locked"[
+                commandTopic="smartthings/DoorLock/bool_Locked/state",
+                stateTopic="smartthings/DoorLock/bool_Locked/cmd",
+                on="false",off="true",postCommand=true
+            ]
+    }
+    Thing topic Away "Away"{
+        Channels:
+            Type switch : bool_On "Away"[
+                commandTopic="smartthings/Away/bool_On/state",
+                stateTopic="smartthings/Away/bool_On/cmd",
+                on="true",off="false",postCommand=true
+            ]
+    }
+}
