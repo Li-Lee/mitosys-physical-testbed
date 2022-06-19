@@ -8,7 +8,7 @@
 * Smartphone
 
 ## Required Software
-* MITOSYS ([https://github.com/hammadmazhar1/mosquitto](https://github.com/stjohnjohnson/smartthings-mqtt-bridge))
+* MITOSYS ([https://github.com/hammadmazhar1/mosquitto](https://github.com/hammadmazhar1/mosquitto))
 * SmartThings MQTT Bridge ([https://github.com/stjohnjohnson/smartthings-mqtt-bridge](https://github.com/stjohnjohnson/smartthings-mqtt-bridge))
 * openHAB
 
